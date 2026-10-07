@@ -1,0 +1,435 @@
+.hero-title{
+  font-family: 'Preahvihear', sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1.15;
+  margin: 0 0 20px 0;
+}
+
+.hero-title span{
+  display: block;
+}
+
+.hero-title-dark{
+  color: #444;
+}
+
+.hero-title-green{
+  color: #218B54;
+}
+
+.hero-subtitle{
+  font-family: 'Preahvihear', sans-serif;
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  color: #000;
+}
+
+/* ===================================
+   GLOBAL STYLES
+   =================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.w-full {
+    width: 100%;
+}
+
+/* ===================================
+   TYPOGRAPHY
+   =================================== */
+.font-headline {
+    font-family: 'Preahvihear', sans-serif;
+}
+
+.font-body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+
+
+/* ===================================
+   INTERACTIVE ELEMENTS
+   =================================== */
+.chart-bar {
+    transition: all 0.3s ease;
+}
+
+.chart-bar:hover {
+    opacity: 0.8;
+}
+
+.btn-hover {
+    transition: all 0.3s ease;
+}
+
+.btn-hover:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+   BUTTON HOVER (SMOOTH)
+   =========================== */
+
+/* ===========================
+   NAVIGATION HOVER
+   =========================== */
+
+/* base nav link */
+.nav-link {
+  border-radius: 8px;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* hover effect */
+.nav-link:hover {
+  background-color: #EAF7F0;
+  color: #218B54 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(33, 139, 84, 0.18);
+}
+
+/* active / clicked feel */
+.nav-link:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(33, 139, 84, 0.2);
+}
+
+button[onclick^="handleDeletePlastic"]:hover {
+  background-color: #dc3545;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* smooth transition */
+button[onclick^="handleDeletePlastic"] {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.btn-hover,
+.btn-animated {
+  transition: 
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.btn-hover:hover,
+.btn-animated:hover {
+  background-color: #218B54; /* lebih gelap */
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(33, 139, 84, 0.25);
+  transform: translateY(-2px); /* halus, tidak lebay */
+}
+
+/* BUTTON SECONDARY (PUTIH) */
+.btn-animated[style*="background-color: white"]:hover {
+  background-color: #EAF7F0;
+  color: #218B54;
+}
+
+/* START TRACKING (HIJAU) */
+.btn-animated[style*="background-color: ${config.primary_action_color}"]:hover {
+  background-color: white !important; /* hijau lebih gelap */
+  color: 218B54 !important;
+}
+
+/* LEARN MORE (PUTIH) */
+.btn-animated[style*="background-color: white"]:hover {
+  background-color: #EAF7F0 !important;
+  color: #218B54 !important;
+  box-shadow: 0 6px 18px rgba(33, 139, 84, 0.25);
+}
+/* ===========================
+   SCROLL ANIMATION (SAFE)
+   =========================== */
+
+/* DEFAULT: SEMUA TERLIHAT */
+.fade-in,
+.fade-in-left,
+.fade-in-right {
+  opacity: 1;
+  transform: none;
+}
+
+/* SAAT BELUM MASUK VIEW */
+.animate-section:not(.visible) .fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.animate-section:not(.visible) .fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.animate-section:not(.visible) .fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+/* SAAT MASUK VIEW */
+.animate-section.visible .fade-in,
+.animate-section.visible .fade-in-left,
+.animate-section.visible .fade-in-right {
+  opacity: 1;
+  transform: translate(0);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+
+/* ===================================
+   FORM ELEMENTS
+   =================================== */
+input:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(60, 179, 113, 0.3);
+}
+
+input,
+select,
+button {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===================================
+   SCROLLBAR STYLING
+   =================================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3CB371;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #218B54;
+}
+
+/* ===================================
+   RESPONSIVE ADJUSTMENTS
+   =================================== */
+@media (max-width: 900px) {
+    nav > div > div {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav > div > div > div:last-child {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 900px) {
+  section > div {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  section img {
+    margin: 0 auto;
+  }
+}
+
+
+@media (max-width: 768px) {
+    section > div > div[style*="grid-template-columns: 1fr 1fr"],
+    section > div > div[style*="grid-template-columns: 1fr 1.5fr"],
+    section > div > div[style*="grid-template-columns: 1.2fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+    
+    h1 {
+        font-size: 32px !important;
+    }
+    
+    h2 {
+        font-size: 28px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-surface {
+        padding: 20px !important;
+    }
+    
+    nav a {
+        padding: 6px 10px !important;
+        font-size: 12px !important;
+    }
+}
+
+/* =========================
+   NAV RAPiH DI MOBILE
+   ========================= */
+.lp-nav { padding: 12px 0; }
+
+.lp-nav-inner { padding: 0 16px; }
+
+.lp-nav-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.lp-nav-logo{
+  width: 150px;
+  max-width: 45vw;
+  height:auto;
+  display:block;
+  border-radius: 12px;
+}
+
+/* Link container */
+.lp-nav-links{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  align-items:center;
+}
+
+/* nav-link kamu tetap dipakai */
+.lp-nav-links .nav-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration:none;
+  color:#218B54;
+  border-radius: 10px;
+}
+
+/* MOBILE: nav jadi scroll horizontal biar rapi (nggak numpuk) */
+@media (max-width: 600px){
+  .lp-nav-row{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .lp-nav-links{
+    width:100%;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content:flex-start;
+    padding-bottom: 6px;
+  }
+
+  .lp-nav-links .nav-link{
+    white-space:nowrap;
+    flex: 0 0 auto;
+  }
+}
+
+/* =========================
+   HELPS CARDS RAPiH DI HP
+   ========================= */
+.helps-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.helps-card{
+  background-color: rgba(255,255,255,0.95);
+  padding: 24px;
+  border-radius: 12px;
+  height: 100%;
+}
+
+@media (max-width: 600px){
+  .helps-grid{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .helps-card{
+    padding: 18px;
+    text-align: left;
+  }
+}
